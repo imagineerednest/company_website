@@ -21,9 +21,9 @@ function Our_projects({projects, categories}: {projects: any[], categories: any[
         }
       };
     
-      const filteredProjects = activeFilter === 'all'
+    const filteredProjects = activeFilter === 'all'
     ? projects
-    : projects.filter(p => p.category === activeFilter);
+    : projects.filter(p => p.serviceType === activeFilter || p.category === activeFilter);
 
   const openLightbox = (image: string, extras: string[], alt: string) => {
     setLb({
@@ -91,7 +91,7 @@ function Our_projects({projects, categories}: {projects: any[], categories: any[
             </div>
 
             {/* Grid */}
-            <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 animate-in fade-in px-3 duration-500">
+            <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 animate-in fade-in px-3 duration-500">
               {filteredProjects.slice(0, visibleCount).map(proj => (
                 <div
                   key={proj.id}

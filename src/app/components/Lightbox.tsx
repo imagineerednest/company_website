@@ -46,6 +46,18 @@ const Lightbox = ({
     };
   }, [isOpen, onClose, prevImg, nextImg]);
 
+  useEffect(() => {
+    const container = document.getElementById('thumbnail-container');
+    const activeThumb = document.getElementById(`thumb-${currentIndex}`);
+    if (container && activeThumb) {
+      activeThumb.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'center'
+      });
+    }
+  }, [currentIndex]);
+
   if (!isOpen) return null;
 
   return (
@@ -76,7 +88,7 @@ const Lightbox = ({
           <img
             src={images[currentIndex]}
             alt={`${title} - Image ${currentIndex + 1}`}
-            className="w-full md:h-[70vh] h-[60vh] object-contain transition-all duration-300"
+            className="w-full md:h-[70vh] h-[55vh] object-contain transition-all duration-300"
           />
           
           {images.length > 1 && (
@@ -107,15 +119,19 @@ const Lightbox = ({
 
         {/* Thumbnails */}
         {images.length > 1 && (
-          <div className="flex flex-wrap gap-3 mt-6 justify-center">
+          <div 
+            id="thumbnail-container"
+            className="flex overflow-x-auto gap-4 mt-8 pb-4 scrollbar-hide snap-x items-center justify-start max-w-full px-4"
+          >
             {images.map((img, i) => (
               <button
                 key={i}
+                id={`thumb-${i}`}
                 onClick={(e) => {
                   e.stopPropagation();
                   setCurrentIndex(i);
                 }}
-                className={`w-16 h-16 rounded-lg overflow-hidden border-2 transition-all duration-300 ${
+                className={`w-16 h-16 shrink-0 snap-center rounded-lg overflow-hidden border-2 transition-all duration-300 ${
                   i === currentIndex
                     ? 'border-primary ring-2 ring-primary/30 scale-110'
                     : 'border-white/20 opacity-60 hover:opacity-100 hover:scale-105'
@@ -128,7 +144,7 @@ const Lightbox = ({
           </div>
         )}
         
-        <p className="text-center text-white/30 text-xs mt-6 font-medium">
+        <p className="text-center text-white/30 text-xs mt-4 font-medium">
           Press <span className="text-white/50">ESC</span> to close · <span className="text-white/50">Arrow keys</span> to navigate
         </p>
       </div>

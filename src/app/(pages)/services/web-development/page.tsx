@@ -24,7 +24,7 @@ const categories = [
   { id: 'agriculture', label: 'Agriculture' },
   { id: 'health', label: 'Health' },
   { id: 'education', label: 'Education' },
-  { id: 'realestate', label: 'Real Estate' },
+  { id: 'real-estate', label: 'Real Estate' },
 ];
 
 const projects = ALL_PROJECTS.filter(p => p.serviceType === 'web');

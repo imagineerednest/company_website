@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { ArrowRight, Sparkles, Star, Zap, Globe, ShoppingBag, Palette, Code2, Layers, BarChart3, ChevronDown } from 'lucide-react';
 import Our_projects from '@/app/components/Our_projects';
 import { ALL_PROJECTS, CATEGORIES } from '@/app/data/portfolio_data';
-import { imagesRow1, imagesRow2} from './protfolio';
 import RecentProjects from '@/app/components/RecentProjects/RecentProjects';
 export const metadata: Metadata = {
   title: 'Portfolio | Adrees Services',

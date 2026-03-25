@@ -15,7 +15,7 @@ export default function PortfolioPage() {
 
   const recentProjects = [
     {
-      imageLink: "/images/recentprojects/otp_varification_project/landing_page.png",
+      imageLink: "https://res.cloudinary.com/dqjp2xwje/image/upload/v1774336446/company-website/images/recentprojects/otp_varification_project/landing_page.png",
       title: "Architecting the OTP Infrastructure",
       description: "A full-stack real-time OTP verification system for secure user authentication.",
       techStack: ["Next.js", "Django", "PostgreSQL", "Tailwind"],
@@ -23,7 +23,7 @@ export default function PortfolioPage() {
       stats: [["1000+", "Requests(per day)"], ["100ms", "Response Time(per request)"]] as [string, string][]
     },
     {
-      imageLink: "/images/recentprojects/herd_erp_project/landig_page.png",
+      imageLink: "https://res.cloudinary.com/dqjp2xwje/image/upload/v1774336444/company-website/images/recentprojects/herd_erp_project/landig_page.png",
       title: "Herd ERP System",
       description: "A comprehensive ERP system for herd management, designed to streamline operations and improve efficiency.",
       techStack: ["Next.js", "Node.js", "PostgreSQL", "Tailwind"],
@@ -31,7 +31,7 @@ export default function PortfolioPage() {
       stats: [["100+", "Herds(managed)"], ["100ms", "Response Time(per request)"]] as [string, string][]
     },
     {
-      imageLink: "/images/recentprojects/crop_erp_project/landing_page.png",
+      imageLink: "https://res.cloudinary.com/dqjp2xwje/image/upload/v1774336433/company-website/images/recentprojects/crop_erp_project/landing_page.png",
       title: "Crop ERP System",
       description: "A comprehensive ERP system for crop management, designed to streamline operations and improve efficiency.",
       techStack: ["Next.js", "Node.js", "PostgreSQL", "Tailwind"],

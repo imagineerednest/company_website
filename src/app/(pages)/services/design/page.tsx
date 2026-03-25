@@ -7,9 +7,9 @@ import Our_projects from '@/app/components/Our_projects';
 
 const categories = [
   { id: 'all', label: 'All' },
-  { id: 'web', label: 'Web UI' },
-  { id: 'mobile', label: 'Mobile UX' },
-  { id: 'system', label: 'Design System' },
+  { id: 'web', label: 'Web UX/UI' },
+  { id: 'mobile', label: 'Mobile UX/UI' },
+  { id: 'system', label: 'Desktop UX/UI' },
 ];
 
 import { ALL_PROJECTS } from '@/app/data/portfolio_data';
@@ -43,7 +43,7 @@ export default function UIDesignPage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <main className="">
-        <Hero title1='Intuitive UI/UX' title2='Design' subtitle='We craft intuitive, engaging, and visually stunning digital experiences.' image="/images/sample/design/ux1.jpg" />
+        <Hero title1='Intuitive UI/UX' title2='Design' subtitle='We craft intuitive, engaging, and visually stunning digital experiences.' image="https://res.cloudinary.com/dqjp2xwje/image/upload/v1774336482/company-website/images/sample/design/ux1.jpg" />
         {/* Features */}
         <How_To_Work steps={steps} />
         {/* Portfolio Grid */}

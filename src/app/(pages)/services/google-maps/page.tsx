@@ -2,6 +2,7 @@
 
 import { MapPin, Globe, Zap, Search, Layout, Smartphone } from 'lucide-react';
 import Link from 'next/link';
+import ImageWithLoader from '@/app/components/ImageWithLoader';
 
 export default function GoogleMapsPage() {
   return (
@@ -27,7 +28,13 @@ export default function GoogleMapsPage() {
               </Link>
             </div>
             <div className="flex-1 w-full max-w-2xl text-justify">
-               <img src="https://placehold.co/800x600/2563eb/white?text=Google+Maps+Listing+Results" alt="Google Maps" className="rounded-2xl shadow-2xl border border-border" />
+                <ImageWithLoader 
+                  src="https://placehold.co/800x600/2563eb/white?text=Google+Maps+Listing+Results" 
+                  alt="Google Maps" 
+                  usePlainImg={true}
+                  containerClassName="rounded-2xl shadow-2xl border border-border overflow-hidden"
+                  className="w-full h-full object-cover" 
+                />
             </div>
           </div>
         </section>

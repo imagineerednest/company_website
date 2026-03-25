@@ -20,7 +20,7 @@ export default function DesktopDevelopmentPage() {
     <div className="min-h-screen bg-background text-foreground">
       <main className="">
         {/* Hero */}
-        <Hero title1='Powerful Desktop' title2='Solutions' subtitle='We create fast, stable, and scalable software for Windows, macOS, and Linux.' image="/images/sample/desktop-development/dt1.jpg" />
+        <Hero title1='Powerful Desktop' title2='Solutions' subtitle='We create fast, stable, and scalable software for Windows, macOS, and Linux.' image="https://res.cloudinary.com/dqjp2xwje/image/upload/v1774336488/company-website/images/sample/desktop-development/dt1.jpg" />
         {/* Process */}
         <How_To_Work />
         {/* Our Recent Projects */}

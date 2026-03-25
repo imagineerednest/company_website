@@ -4,6 +4,7 @@ import { useTheme } from '@/context/ThemeContext';
 import Owners from '@/app/components/Owners';
 import Link from 'next/link';
 import { ArrowRight, Zap, Target, Eye, Code, Users, Lightbulb, Sparkles, Rocket, ChevronDown } from 'lucide-react';
+import ImageWithLoader from '@/app/components/ImageWithLoader';
 import Counter from '@/app/components/Counter';
 import Loading from '../loading';
 
@@ -49,10 +50,12 @@ export default function About() {
                 <div className="relative group">
                   <div className="absolute -inset-4 bg-blue-500/20 rounded-3xl blur-2xl group-hover:bg-blue-500/30 transition-all"></div>
                   <div className="relative aspect-[4/5] rounded-3xl overflow-hidden border border-border/50 shadow-2xl">
-                    <img
-                      src="images/muhammad_zeeshan.jpg"
+                    <ImageWithLoader
+                      src="https://res.cloudinary.com/dqjp2xwje/image/upload/v1774336423/company-website/images/muhammad_zeeshan.jpg"
                       alt="Muhammad Zeeshan"
-                      className="w-full h-full object-cover scale-150  group-hover:scale-140 "
+                      usePlainImg={true}
+                      containerClassName="w-full h-full"
+                      className="w-full h-full object-cover scale-150 group-hover:scale-140"
                     />
                   </div>
                   {/* Founder Label */}
@@ -93,9 +96,11 @@ export default function About() {
                 <div className="relative group">
                   <div className="absolute -inset-4 bg-purple-500/20 rounded-3xl blur-2xl group-hover:bg-purple-500/30 transition-all"></div>
                   <div className="relative aspect-[4/5] rounded-3xl overflow-hidden border border-border/50 shadow-2xl">
-                    <img
-                      src="images/muhammad_adrees.jpg"
+                    <ImageWithLoader
+                      src="https://res.cloudinary.com/dqjp2xwje/image/upload/v1774336417/company-website/images/muhammad_adrees.jpg"
                       alt="Muhammad Adrees"
+                      usePlainImg={true}
+                      containerClassName="w-full h-full"
                       className="w-full h-full object-cover transition-all duration-700 scale-200 group-hover:scale-[2.1]"
                     />
                   </div>
@@ -139,9 +144,11 @@ export default function About() {
               </div>
 
               <div className="lg:col-span-4 rounded-[2.5rem] overflow-hidden border border-border shadow-xl">
-                <img
+                <ImageWithLoader
                   src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=800"
-                  className="w-full h-full object-cover  transition-all duration-700"
+                  usePlainImg={true}
+                  containerClassName="w-full h-full"
+                  className="w-full h-full object-cover transition-all duration-700"
                   alt="Tech workspace"
                 />
               </div>

@@ -120,7 +120,7 @@ export default function ContactPage() {
           </div>
         </section> */}
         <Hero title1="Let's Build" title2='Something Great' subtitle="Have a project in mind or just want to say hello? We'd love to hear from you. Drop us a message and we'll get back to you within 24 hours." 
-        image='/images/contact_hero_img.png' 
+        image='https://res.cloudinary.com/dqjp2xwje/image/upload/v1774335819/company-website/ipfhbpibns3wtmnmlll5.png' 
         imageHeight={400} imageWidth={700} />
         {/* ── Main Grid ── */}
         <section id="contact-form" className="py-16 px-5 pb-24">

@@ -32,7 +32,7 @@ export default function BrandingPage() {
     <div className="min-h-screen bg-background text-foreground">
       <main className="">
         {/* Hero section */}
-        <Hero title1='Build a legacy' title2='Brand' subtitle='We craft brand identities that resonate with your audience and establish authority.' image='/images/sample/branding/hero.jpg'/>
+        <Hero title1='Build a legacy' title2='Brand' subtitle='We craft brand identities that resonate with your audience and establish authority.' image='https://res.cloudinary.com/dqjp2xwje/image/upload/v1774336481/company-website/images/sample/branding/hero.jpg'/>
         {/* Skills section */}
        <How_To_Work steps={steps} />
       </main>

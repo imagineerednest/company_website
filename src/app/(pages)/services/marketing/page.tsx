@@ -2,6 +2,7 @@
 
 import { Megaphone, Users, Share2, Zap, BarChart, Heart } from 'lucide-react';
 import Link from 'next/link';
+import ImageWithLoader from '@/app/components/ImageWithLoader';
 
 export default function MarketingPage() {
   return (
@@ -27,7 +28,13 @@ export default function MarketingPage() {
               </Link>
             </div>
             <div className="flex-1 w-full max-w-2xl text-justify">
-               <img src="https://placehold.co/800x600/2563eb/white?text=Digital+Marketing+Impact" alt="Marketing" className="rounded-2xl shadow-2xl border border-border" />
+                <ImageWithLoader 
+                  src="https://placehold.co/800x600/2563eb/white?text=Digital+Marketing+Impact" 
+                  alt="Marketing" 
+                  usePlainImg={true}
+                  containerClassName="rounded-2xl shadow-2xl border border-border overflow-hidden"
+                  className="w-full h-full object-cover" 
+                />
             </div>
           </div>
         </section>

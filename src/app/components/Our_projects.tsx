@@ -3,6 +3,7 @@ import { ArrowRight, ChevronLeft, ChevronRight, Images } from 'lucide-react';
 import React from 'react'
 import { useState, useRef } from 'react';
 import Lightbox from './Lightbox';
+import ImageWithLoader from './ImageWithLoader';
 
 function Our_projects({projects, categories}: {projects: any[], categories: any[]}) {
   
@@ -91,14 +92,20 @@ function Our_projects({projects, categories}: {projects: any[], categories: any[
             </div>
 
             {/* Grid */}
-            <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 animate-in fade-in px-3 duration-500">
+            <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 animate-in fade-in px-3 duration-500">
               {filteredProjects.slice(0, visibleCount).map(proj => (
                 <div
                   key={proj.id}
                   onClick={() => openLightbox(proj.image, proj.extraImages, proj.alt)}
                   className="relative group aspect-square rounded-2xl overflow-hidden cursor-pointer border border-border shadow-sm"
                 >
-                  <img src={proj.image} alt={proj.alt} className="w-full h-full object-cover transition duration-700 group-hover:scale-110" />
+                  <ImageWithLoader 
+                    src={proj.image} 
+                    alt={proj.alt} 
+                    usePlainImg={true}
+                    containerClassName="w-full h-full"
+                    className="w-full h-full object-cover transition duration-700 group-hover:scale-110" 
+                  />
                   <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                     <p className="text-white font-bold text-lg translate-y-4 group-hover:translate-y-0 transition-transform duration-300">{proj.alt}</p>
                     <div className="mt-2 flex items-center text-primary-foreground/80 text-xs font-semibold uppercase tracking-wider translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">

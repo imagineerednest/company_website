@@ -2,6 +2,7 @@
 
 import { MapPin, Building2, Star, Zap, Search, Globe } from 'lucide-react';
 import Link from 'next/link';
+import ImageWithLoader from '@/app/components/ImageWithLoader';
 
 export default function LocalPresencePage() {
   return (
@@ -27,7 +28,13 @@ export default function LocalPresencePage() {
               </Link>
             </div>
             <div className="flex-1 w-full max-w-2xl">
-               <img src="https://placehold.co/800x600/2563eb/white?text=Local+Business+Visibility" alt="Local Presence" className="rounded-2xl shadow-2xl border border-border" />
+                <ImageWithLoader 
+                  src="https://placehold.co/800x600/2563eb/white?text=Local+Business+Visibility" 
+                  alt="Local Presence" 
+                  usePlainImg={true}
+                  containerClassName="rounded-2xl shadow-2xl border border-border overflow-hidden"
+                  className="w-full h-full object-cover" 
+                />
             </div>
           </div>
         </section>

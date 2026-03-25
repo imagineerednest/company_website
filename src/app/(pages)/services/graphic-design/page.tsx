@@ -11,24 +11,23 @@ import Our_projects from '@/app/components/Our_projects';
 
 const categories = [
   { id: 'all', label: 'All' },
-  { id: 'logo_design', label: 'Logo Designing' },
-  { id: 'poster_design', label: 'Poster Designing' },
   { id: 'banner_design', label: 'Banner Designing' },
-  { id: 'flyer_design', label: 'Flyer Designing' },
+  { id: 'book_cover_design', label: 'Book Cover Designing' },
   { id: 'brochure_design', label: 'Brochure Designing' },
-  { id: 'business_card', label: 'Business Card Design' },
-  { id: 'social_media_post', label: 'Social Media Post Design' },
-  { id: 'thumbnail_design', label: 'Thumbnail Design' },
-  { id: 'packaging_design', label: 'Packaging Design' },
-  { id: 'tshirt_design', label: 'T-Shirt Design' },
-  { id: 'book_cover', label: 'Book Cover Design' },
+  { id: 'card_design', label: 'Card Design' },
+  { id: 'logo_design', label: 'Logo Designing' },
   { id: 'magazine_design', label: 'Magazine Design' },
+  { id: 'packaging_design', label: 'Packaging Design' },
+  { id: 'poster_design', label: 'Poster Designing' },
+  { id: 'standee_design', label: 'Standee Design' },
+  { id: 'thumbnail_design', label: 'Thumbnail Design' },
+  { id: 'tshirt_design', label: 'T-Shirt Design' },
 ];
 
 import { ALL_PROJECTS } from '@/app/data/portfolio_data';
 
-const projects = ALL_PROJECTS.filter(p => 
-  p.serviceType === 'design' && 
+const projects = ALL_PROJECTS.filter(p =>
+  p.serviceType === 'graphic' &&
   categories.some(cat => cat.id === p.category)
 );
 
@@ -47,7 +46,7 @@ export default function GraphicDesignPage() {
     <div className="min-h-screen bg-background text-foreground">
       <main className="">
         {/* Hero */}
-        <Hero title1='Creative Graphic' title2='Design'  imageWidth={600} subtitle='We create striking visuals that showcase and elevate your brand.' image="/images/sample/graphic-design/designe.jpg" />
+        <Hero title1='Creative Graphic' title2='Design' imageWidth={600} subtitle='We create striking visuals that showcase and elevate your brand.' image="https://res.cloudinary.com/dqjp2xwje/image/upload/v1774336506/company-website/images/sample/graphic-design/designe.jpg" />
         {/* Skills */}
         <How_To_Work steps={steps} />
         {/* Our work */}

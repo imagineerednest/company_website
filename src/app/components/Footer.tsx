@@ -14,7 +14,7 @@ const Footer = () => {
           <Link href="/" className="flex items-center gap-2 group">
             <div className="relative h-14 w-14">
               <Image 
-                src="/images/logo.png" 
+                src="https://res.cloudinary.com/dqjp2xwje/image/upload/v1774336406/company-website/images/logo.png" 
                 alt="Imagineerednest" 
                 fill
                 className="object-contain drop-shadow-sm group-hover:scale-110 transition" 

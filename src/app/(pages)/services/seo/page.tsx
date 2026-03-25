@@ -35,7 +35,7 @@ export default function SEOPage() {
         title1="Advanced SEO "
         title2='Strategies'
         subtitle="We help your website rank higher on Google by improving technical SEO, choosing the right keywords, and building quality backlinks for steady growth"
-        image="/images/sample/seo/hero.jpg"
+        image="https://res.cloudinary.com/dqjp2xwje/image/upload/v1774336538/company-website/images/sample/seo/hero.jpg"
         />
         {/* <section className="py-24 px-5">
           <div className="container mx-auto flex flex-col md:flex-row items-center gap-12 max-w-7xl">

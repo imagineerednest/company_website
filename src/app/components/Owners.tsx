@@ -4,13 +4,14 @@ import { useState } from 'react';
 import { ArrowUpRight, X } from 'lucide-react';
 import Image from 'next/image';
 import { useTheme } from '@/context/ThemeContext';
+import ImageWithLoader from './ImageWithLoader';
 
 const owners = [
   {
     name: 'Muhammad Zeeshan',
     role: 'Co-Founder & Creative Director',
     desc: 'Specializes in graphic design, digital marketing, and Google Maps optimization.',
-    img: '/images/muhammad_zeeshan.jpg',
+    img: 'https://res.cloudinary.com/dqjp2xwje/image/upload/v1774335831/company-website/jhds2njgdx9nlpcemqol.jpg',
     details: 'With over 8 years of experience in creative direction and digital marketing, Muhammad Zeeshan has led multiple successful campaigns and brand transformations. His expertise spans graphic design, UI/UX, and strategic Google Maps optimization, helping businesses significantly improve their online visibility. He is passionate about turning creative ideas into impactful digital solutions.',
     expertise: ['Graphic Design', 'Digital Marketing', 'Brand Strategy', 'Google Maps SEO', 'Social Media Marketing'],
   },
@@ -18,7 +19,7 @@ const owners = [
     name: 'Muhammad Adrees',
     role: 'Co-Founder & Lead Developer',
     desc: 'Specializes in full-stack software development, modern web applications, and scalable digital solutions.',
-    img: '/images/muhammad_adrees.png',
+    img: 'https://res.cloudinary.com/dqjp2xwje/image/upload/v1774335824/company-website/z34o3noygjp0p3rkveme.jpg',
     details: 'Muhammad Adrees is a full-stack development expert with a strong passion for building scalable and high-performance applications. With expertise in modern web technologies and cloud architecture, he has developed numerous successful digital products. His technical excellence combined with a user-focused approach ensures that every solution delivers real value to users.',
     expertise: ['Full-Stack Development', 'React & Next.js', 'Backend Architecture', 'Cloud Solutions', 'Database Design'],
   },
@@ -54,7 +55,7 @@ const Owners = () => {
                 <div className="relative inline-block mb-8">
                   <div className="absolute inset-0 rounded-full border-2 border-transparent group-hover:border-blue-500 scale-125 opacity-0 group-hover:opacity-100 transition-all duration-500" />
                   <div className="relative w-32 h-32 sm:w-40 sm:h-40 mx-auto rounded-full border-4 border-blue-600 shadow-xl overflow-hidden group-hover:scale-110 transition-transform duration-500">
-                    <Image 
+                    <ImageWithLoader 
                       src={owner.img} 
                       alt={owner.name} 
                       fill
@@ -95,7 +96,7 @@ const Owners = () => {
               <div className="flex flex-col sm:flex-row items-start gap-8 mb-8 pb-8 border-b border-border">
                 <div className="shrink-0 mx-auto sm:mx-0">
                   <div className="relative w-28 h-28 sm:w-32 sm:h-32">
-                    <Image
+                    <ImageWithLoader
                       src={selectedOwner.img}
                       alt={selectedOwner.name}
                       fill

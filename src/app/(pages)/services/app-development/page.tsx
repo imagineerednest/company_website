@@ -29,7 +29,7 @@ export default function AppDevelopmentPage() {
           title1="Native &"
           title2="Hybrid Apps"
           subtitle="We craft powerful mobile experiences for iOS, Android, and Cross Platform that are engineered for scale, speed, and seamless user interactions."
-          image="/images/sample/app-development/app1.jpg"
+          image="https://res.cloudinary.com/dqjp2xwje/image/upload/v1774336463/company-website/images/sample/app-development/app1.jpg"
           video="/images/video.mp4"
         />
         {/* How to work */}

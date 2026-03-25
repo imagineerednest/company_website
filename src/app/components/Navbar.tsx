@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect, useRef, lazy } from 'react';
 import { useTheme } from '@/context/ThemeContext';
+import ImageWithLoader from './ImageWithLoader';
 import { usePathname } from 'next/navigation';
 import {
   Globe, Smartphone, Monitor,
@@ -70,7 +71,7 @@ const Navbar = () => {
   }, [mobileMenuOpen, servicesDropdownOpen]);
 
   return (
-    <nav className={`fixed w-full top-0 left-0 z-50 flex justify-between items-center transition-all duration-500 ease-in-out px-5 md:px-10 border-b overflow-visible ${
+    <nav className={`fixed w-full top-0  left-0 z-50 flex  justify-between items-center transition-all duration-500 ease-in-out px-5 md:px-10 border-b overflow-visible ${
       isVisible ? 'translate-y-0 ' : '-translate-y-[120%] '
     } ${
       isScrolled 
@@ -79,8 +80,8 @@ const Navbar = () => {
     }`}>
       <Link href="/" className="flex items-center gap-2 group">
         <div className={`relative bg-slate-900 rounded-xl transition-all duration-300 ${isScrolled ? 'h-10 w-10' : 'h-12 w-12 md:h-14 md:w-14'}`}>
-          <Image 
-            src="/images/logo.png" 
+          <ImageWithLoader 
+            src="https://res.cloudinary.com/dqjp2xwje/image/upload/v1774335822/company-website/r97k4rmx2byq4tqrrshs.png" 
             alt="Imagineerednest" 
             fill
             className="object-contain drop-shadow-sm group-hover:scale-105 transition duration-300 w-full h-full"
@@ -191,13 +192,37 @@ const Navbar = () => {
                   </div> */}
 
                   {/* Local */}
-                  {/* <div className="pt-2 border-t border-border ">
+                 <div className="pt-2 border-t border-border ">
+                   <div>
                     <h4 className="text-[11px] font-bold uppercase tracking-[0.2em] text-muted-foreground mb-6 mt-6">Local Presence</h4>
                     <div className="space-y-4">
                       {[
-                        { label: 'Location SEO', href: '/services/local-presence', Icon: MapPin },
+                       // { label: 'Location SEO', href: '/services/local-presence', Icon: MapPin },
+                        { label: 'Local Business', href: '/services/google-maps', Icon: Building2 },
+                        // { label: 'Brand Identity', href: '/services/branding', Icon: Pen },
+                      ].map(({ label, href, Icon }) => (
+                        <Link key={label} href={href} className="group flex items-center gap-4 transition-all">
+                          <div className={`w-10 h-10 rounded-xl border flex items-center justify-center shrink-0 transition-all ${
+                            pathname === href 
+                              ? 'bg-primary/10 border-primary/40' 
+                              : 'bg-secondary/5 border-border group-hover:border-primary/30 group-hover:bg-primary/5'
+                          }`}>
+                            <Icon className={`w-5 h-5 transition-colors ${pathname === href ? 'text-primary' : 'text-muted-foreground group-hover:text-primary'}`} />
+                          </div>
+                          <div>
+                            <p className={`text-sm font-semibold transition-colors ${pathname === href ? 'text-primary' : 'text-foreground group-hover:text-primary'}`}>{label}</p>
+                            <p className="text-[11px] text-muted-foreground leading-tight">Visual excellence</p>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                    {/* <div className="space-y-4">
+                      {[
+                        // { label: 'Location SEO', href: '/services/local-presence', Icon: MapPin },
                         { label: 'Local Business', href: '/services/google-maps', Icon: Building2 },
                       ].map(({ label, href, Icon }) => (
+                        
                         <div key={label} className='relative '>
                               <p className='  absolute top-0 right-0 bg-primary text-white px-2 py-1 rounded-full text-[11px] leading-tight'>Coming soon</p> 
                         <div className="group opacity-40 cursor-default flex items-center gap-4 transition-all">
@@ -215,8 +240,9 @@ const Navbar = () => {
                         </div>
                         </div>
                       ))}
-                    </div>
-                  </div> */}
+                    </div> */}
+                     
+                  </div> 
                 </div>
 
                 {/* CTA / Right Section */} 

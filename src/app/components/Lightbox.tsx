@@ -1,7 +1,8 @@
 'use client';
 
 import { useEffect, useCallback } from 'react';
-import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight, ZoomIn, ZoomOut, RotateCcw } from 'lucide-react';
+import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 
 interface LightboxProps {
   isOpen: boolean;
@@ -62,12 +63,12 @@ const Lightbox = ({
 
   return (
     <div
-      className="fixed inset-0 z-100 bg-black/95 flex items-center justify-center p-4 animate-in fade-in duration-200"
+      className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 animate-in fade-in duration-200"
       onClick={onClose}
     >
-      <div className="relative max-w-5xl w-full" onClick={(e) => e.stopPropagation()}>
+      <div className="relative max-w-6xl w-full h-full flex flex-col pt-4" onClick={(e) => e.stopPropagation()}>
         {/* Header */}
-        <div className="flex items-center justify-between mb-4 px-2">
+        <div className="flex items-center justify-between mb-4 px-2 shrink-0">
           <div>
             <h3 className="text-white font-bold text-xl">{title}</h3>
             <p className="text-white/50 text-sm">
@@ -84,12 +85,48 @@ const Lightbox = ({
         </div>
 
         {/* Image Display */}
-        <div className="relative rounded-2xl overflow-hidden bg-white/5 border border-white/10 shadow-2xl">
-          <img
-            src={images[currentIndex]}
-            alt={`${title} - Image ${currentIndex + 1}`}
-            className="w-full md:h-[70vh] h-[55vh] object-contain transition-all duration-300"
-          />
+        <div className="relative flex-1 rounded-2xl overflow-hidden bg-white/5 border border-white/10 shadow-xl flex group/lightbox">
+          <TransformWrapper
+            key={currentIndex}
+            initialScale={1}
+            minScale={0.5}
+            maxScale={8}
+            centerOnInit={false}
+            wheel={{ step: 0.1, activationKeys: ["Control", "Meta"] }}
+            panning={{ excluded: ['input', 'button', '.no-pan'] }}
+          >
+            {({ zoomIn, zoomOut, resetTransform }) => (
+              <>
+                {/* Zoom Controls Overlay */}
+                <div className="absolute top-4 right-4 z-[60] flex flex-col gap-2 opacity-0 group-hover/lightbox:opacity-100 transition-opacity duration-300">
+                  <button onClick={() => zoomIn()} className="no-pan w-10 h-10 rounded-full bg-black/60 hover:bg-black/80 flex items-center justify-center text-white backdrop-blur-md transition-all border border-white/10 hover:scale-110 active:scale-95" title="Zoom In">
+                    <ZoomIn className="w-5 h-5 pointer-events-none" />
+                  </button>
+                  <button onClick={() => zoomOut()} className="no-pan w-10 h-10 rounded-full bg-black/60 hover:bg-black/80 flex items-center justify-center text-white backdrop-blur-md transition-all border border-white/10 hover:scale-110 active:scale-95" title="Zoom Out">
+                    <ZoomOut className="w-5 h-5 pointer-events-none" />
+                  </button>
+                  <button onClick={() => resetTransform()} className="no-pan w-10 h-10 rounded-full bg-black/60 hover:bg-black/80 flex items-center justify-center text-white backdrop-blur-md transition-all border border-white/10 hover:scale-110 active:scale-95" title="Reset Zoom">
+                    <RotateCcw className="w-4 h-4 pointer-events-none" />
+                  </button>
+                </div>
+                
+                {/* Scrollable Container for the Transformed Content */}
+                <div className="w-full h-full overflow-y-auto overflow-x-hidden scroll-smooth custom-scrollbar">
+                  <TransformComponent 
+                    wrapperClass="!w-full !min-h-full flex flex-col" 
+                    contentClass="!w-full flex-1 flex flex-col"
+                  >
+                    <img
+                      src={images[currentIndex]}
+                      alt={`${title} - Image ${currentIndex + 1}`}
+                      className="w-full h-auto object-cover origin-top cursor-grab active:cursor-grabbing transition-opacity duration-300"
+                      draggable="false"
+                    />
+                  </TransformComponent>
+                </div>
+              </>
+            )}
+          </TransformWrapper>
           
           {images.length > 1 && (
             <>
@@ -98,7 +135,7 @@ const Lightbox = ({
                   e.stopPropagation();
                   prevImg();
                 }}
-                className="absolute left-3 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/50 hover:bg-black/80 border border-white/20 flex items-center justify-center text-white transition-all hover:scale-110 active:scale-90"
+                className="absolute left-3 top-1/2 -translate-y-1/2 z-[60] w-12 h-12 rounded-full bg-black/50 hover:bg-black/80 border border-white/20 flex items-center justify-center text-white transition-all hover:scale-110 active:scale-90"
                 aria-label="Previous image"
               >
                 <ChevronLeft className="w-6 h-6" />
@@ -108,7 +145,7 @@ const Lightbox = ({
                   e.stopPropagation();
                   nextImg();
                 }}
-                className="absolute right-3 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/50 hover:bg-black/80 border border-white/20 flex items-center justify-center text-white transition-all hover:scale-110 active:scale-90"
+                className="absolute right-3 top-1/2 -translate-y-1/2 z-[60] w-12 h-12 rounded-full bg-black/50 hover:bg-black/80 border border-white/20 flex items-center justify-center text-white transition-all hover:scale-110 active:scale-90"
                 aria-label="Next image"
               >
                 <ChevronRight className="w-6 h-6" />
@@ -121,7 +158,7 @@ const Lightbox = ({
         {images.length > 1 && (
           <div 
             id="thumbnail-container"
-            className="flex overflow-x-auto gap-4 mt-8 pb-4 scrollbar-hide snap-x items-center justify-start max-w-full px-4"
+            className="flex overflow-x-auto gap-4 mt-6 pb-2 scrollbar-hide snap-x items-center justify-start max-w-full px-4 shrink-0"
           >
             {images.map((img, i) => (
               <button
@@ -138,14 +175,14 @@ const Lightbox = ({
                 }`}
                 aria-label={`View image ${i + 1}`}
               >
-                <img src={img} alt="" className="w-full h-full object-cover" />
+                <img src={img} alt="" className="w-full h-full object-cover" draggable="false" />
               </button>
             ))}
           </div>
         )}
         
-        <p className="text-center text-white/30 text-xs mt-4 font-medium">
-          Press <span className="text-white/50">ESC</span> to close · <span className="text-white/50">Arrow keys</span> to navigate
+        <p className="text-center text-white/30 text-xs mt-3 mb-4 font-medium shrink-0">
+          Press <span className="text-white/50">ESC</span> to close · <span className="text-white/50">Scroll/Pinch</span> to zoom · <span className="text-white/50">Drag</span> to pan
         </p>
       </div>
     </div>

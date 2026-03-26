@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import ImageWithLoader from "../ImageWithLoader";
+import Image from "next/image";
 
 interface RecentProjectsProps {
     imageLink: string;
@@ -25,12 +25,11 @@ const RecentProjects = ({imageLink,title,description,techStack,liveDemo,stats}:R
                 className="w-full md:w-1/2 relative overflow-hidden bg-gray-50 min-h-[250px] sm:min-h-[300px] cursor-pointer"
                 onClick={() => setIsImageOpen(true)}
             >
-                <ImageWithLoader
+                <Image
                     src={imageLink}
                     alt={`${title} preview`}
-                    usePlainImg={true}
-                    containerClassName="absolute inset-0 w-full h-full"
-                    className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+                    fill
+                    className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
                 />
                 {/* Subtle overlay */}
                 <div className="absolute inset-0 bg-gray-900/5 group-hover:bg-transparent transition-colors duration-500" />

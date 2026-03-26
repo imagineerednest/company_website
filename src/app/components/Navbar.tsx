@@ -4,7 +4,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect, useRef, lazy } from 'react';
 import { useTheme } from '@/context/ThemeContext';
-import ImageWithLoader from './ImageWithLoader';
 import { usePathname } from 'next/navigation';
 import {
   Globe, Smartphone, Monitor,
@@ -80,12 +79,13 @@ const Navbar = () => {
     }`}>
       <Link href="/" className="flex items-center gap-2 group">
         <div className={`relative bg-slate-900 rounded-xl transition-all duration-300 ${isScrolled ? 'h-10 w-10' : 'h-12 w-12 md:h-14 md:w-14'}`}>
-          <ImageWithLoader 
+          <Image 
             src="https://res.cloudinary.com/dqjp2xwje/image/upload/v1774335822/company-website/r97k4rmx2byq4tqrrshs.png" 
             alt="Imagineerednest" 
-            fill
+            width={500}
+            height={500}
             className="object-contain drop-shadow-sm group-hover:scale-105 transition duration-300 w-full h-full"
-            priority
+            
           />
         </div>
       </Link>

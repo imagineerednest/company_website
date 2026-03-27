@@ -45,6 +45,7 @@ const ProjectCard = React.memo(({ proj, index, onOpen }: ProjectCardProps) => {
       style={{ transitionDelay: delay }}
       className={`group relative rounded-2xl overflow-hidden cursor-pointer border border-border shadow-sm aspect-[4/3] transition-all duration-700 ease-out will-change-transform ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'} hover:-translate-y-1 hover:shadow-xl hover:border-primary/40`}
     >
+      
       {/* skeleton shown until image loads */}
       {!loaded && (
         <div className="absolute inset-0 bg-muted animate-pulse z-10">

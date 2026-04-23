@@ -51,7 +51,7 @@ export default function About() {
                   <div className="absolute -inset-4 bg-blue-500/20 rounded-3xl blur-2xl group-hover:bg-blue-500/30 transition-all"></div>
                   <div className="relative aspect-[4/5] rounded-3xl overflow-hidden border border-border/50 shadow-2xl">
                     <Image
-                      src="https://res.cloudinary.com/dqjp2xwje/image/upload/v1774336423/company-website/images/muhammad_zeeshan.jpg"
+                      src="./public/images/muhammad_zeeshan.jpg"
                       alt="Muhammad Zeeshan"
                       width={500}
                       height={500}
